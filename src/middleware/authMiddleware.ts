@@ -6,7 +6,7 @@ export interface AuthenticatedRequest extends Request {
   user?: { id: string; email: string };
 }
 
-export const autenticarToken = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+export const autenticarToken = (req: AuthenticatedRequest, res: any, next: NextFunction) => {
   // Verifica se o token está no cookie
   const token = req.cookies?.token;
   console.log("🚀 ~ autenticarToken ~ token:", token)

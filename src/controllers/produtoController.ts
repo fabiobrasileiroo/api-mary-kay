@@ -178,7 +178,7 @@ export const listarTodosProdutos = async (req: Request, res: Response): Promise<
 
 
 
-export const calcularLucroTotal = async (req: Request, res: Response): Promise<void> => {
+export const calcularLucroTotal = async (req: Request, res: any): Promise<void> => {
   try {
     const produtosVendidos = await produtoService.listarProdutosVendidos();
 

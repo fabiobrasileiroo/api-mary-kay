@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import prisma from '../services/prismaService';
 
 // Função para registrar um novo usuário
-export const registrarUsuario = async (req: Request, res: Response) => {
+export const registrarUsuario = async (req: Request, res: any) => {
   const { email, senha } = req.body;
 
   try {
@@ -35,7 +35,7 @@ export const registrarUsuario = async (req: Request, res: Response) => {
   }
 };
 
-export const loginUsuario = async (req: Request, res: Response): Promise<void> => {
+export const loginUsuario = async (req: Request, res: any): Promise<void> => {
   const { email, senha } = req.body;
 
   try {
