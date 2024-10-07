@@ -16,8 +16,8 @@ Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas:
 Clone este repositório em seu ambiente local:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/fabiobrasileiroo/api-mary-kay.git
+cd api-mary-kay
 ```
 
 ### 2. Configuração de Variáveis de Ambiente
