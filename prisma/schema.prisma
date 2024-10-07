@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())   // Gera um UUID automaticamente
+  email     String     @unique
+  senha     String
+  produtos  Produto[]  // Relacionamento entre usuários e produtos
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Produto {
+  id                 String   @id @default(uuid())  // Gera um UUID automaticamente
+  nome               String
+  valor_bruto        Float
+  porcentagem_lucro  Float?
+  valor_lucro        Float?
+  tipo_lucro         String   @default("percentual")
+  preco_venda        Float
+  custo_deslocamento Float?
+  custo_embalagem    Float?
+  custo_marketing    Float?
+  outros_custos      Float?
+  quantidade         Int      @default(1)
+  status             String   @default("em estoque")
+  userId             String   // Chave estrangeira
+  user               User     @relation(fields: [userId], references: [id])  // Relacionamento com User
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
